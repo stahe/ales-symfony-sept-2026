@@ -1,0 +1,1461 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introducción paso a paso al framework web [Symfony]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ales-symfony-sept-2026/internacionalizacion.html">
+      
+      
+        <link rel="prev" href="la-vista-y-su-modelo.html">
+      
+      
+        <link rel="next" href="ambitos-de-los-datos.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>5. Internacionalización - Introducción paso a paso al framework web [Symfony]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introducción paso a paso al framework web [Symfony]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-internacionalizacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introducción paso a paso al framework web [Symfony]" class="md-header__button md-logo" aria-label="Introducción paso a paso al framework web [Symfony]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción paso a paso al framework web [Symfony]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Internacionalización
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ales-symfony-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introducción paso a paso al framework web [Symfony]" class="md-nav__button md-logo" aria-label="Introducción paso a paso al framework web [Symfony]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción paso a paso al framework web [Symfony]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ales-symfony-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acciones-enrutamiento-respuestas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Acciones, enrutamiento, respuestas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="el-modelo-de-la-accion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. El modelo de la acción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="la-vista-y-su-modelo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. La vista y su modelo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internacionalización
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="internacionalizacion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internacionalización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-ejemplo-22-una-aplicacion-bilingue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Ejemplo 22: una aplicación bilingüe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1. Ejemplo 22: una aplicación bilingüe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-la-configuracion-configpackagesframeworkyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.1. La configuración: config/packages/framework.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-los-diccionarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.2. Los diccionarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-el-idioma-de-cada-solicitud-srceventlistenersetlanguagephp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.3. El idioma de cada solicitud: src/EventListener/SetLanguage.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-seleccion-del-idioma-srccontrollerlanguagecontrollerphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.4. Selección del idioma: src/Controller/LanguageController.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-acciones-srccontrollerpagescontrollerphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.5. Acciones: src/Controller/PagesController.php
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516-traducir-en-las-vistas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.6. Traducir en las vistas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.7. Ejecución
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ambitos-de-los-datos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Ámbitos de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="el-ciclo-de-vida-de-una-solicitud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. El ciclo de vida de una solicitud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="autenticacion-y-autorizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitectura-en-capas-y-acceso-a-datos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Arquitectura en capas y acceso a datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion-provisional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Conclusión provisional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="caso-de-estudio-la-aplicacion-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Caso de estudio: la aplicación RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Conclusión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apendices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Apéndices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-internacionalizacion">5. <span style="color: #2e74b5">Internacionalización</span></h1>
+<p>Una aplicación internacionalizada muestra su texto en el idioma del usuario. El caso de estudio está en francés e inglés. El principio es simple: las vistas ya no contienen texto, sino <strong>claves</strong> (<strong><em>[MENU.HOME]</em></strong>), y un <strong>diccionario</strong> para cada idioma asocia un texto a cada clave. El idioma seleccionado se almacena en una cookie.</p>
+<p><em>[Symfony]</em> incluye un componente de traducción, el <strong>Translator</strong>, que ya encontramos en el Ejemplo 09 para los mensajes de validación. Sus diccionarios se almacenan en la carpeta <strong><em>[translations]</em></strong>, con un archivo por <strong>dominio</strong> e idioma: <strong><em>[validators.en.yaml]</em></strong> (el dominio de los mensajes de validación, Ejemplo 09), <strong><em>[messages.en.yaml]</em></strong> (el dominio predeterminado, el de nuestros textos). El formato YAML admite claves anidadas: así, los diccionarios de las versiones <em>[ASP.NET Core MVC]</em>, <em>[NestJS]</em>, <em>[Spring MVC]</em>, <em>[Flask]</em> y <em>[Laravel]</em> del caso de estudio, salvo por la sintaxis. Para la sintaxis de los propios mensajes, elegimos el formato <strong>ICU</strong> (<em>International Components for Unicode</em>), un estándar que la extensión <strong><em>[intl]</em></strong> de <em>[PHP]</em> puede interpretar y que, por ejemplo, permite flexionar el texto en plural. El formato de fechas y montos sigue siendo el mismo que en el Ejemplo 16.</p>
+<h2 id="51-ejemplo-22-una-aplicacion-bilingue">5.1. <span style="color: #2e74b5">Ejemplo 22: una aplicación bilingüe</span></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>22-i18n/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── config/
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>│   └── packages/
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>│       └── framework.yaml
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├── src/
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>│   ├── Controller/
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>│   │   ├── LanguageController.php
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>│   │   └── PagesController.php
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>│   ├── EventListener/
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>│   │   └── SetLanguage.php
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>│   ├── Model/
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>│   │   └── Product.php
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>│   └── Twig/
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>│       └── FormatsExtension.php
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>├── templates/
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>│   ├── fragments/
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>│   │   └── navbar.html.twig
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>│   ├── layout.html.twig
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>│   └── pages/
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>│       ├── home.html.twig
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>│       └── products.html.twig
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>├── translations/
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>│   ├── messages+intl-icu.en.yaml
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>│   └── messages+intl-icu.fr.yaml
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>└── ...
+</code></pre></div></td></tr></table></div>
+<h3 id="511-la-configuracion-configpackagesframeworkyaml">5.1.1. <span style="color: #1f4d78">La configuración: config/packages/framework.yaml</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># config/packages/framework.yaml: la configuración del FrameworkBundle</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">framework</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="s">'%env(APP_SECRET)%'</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="c1"># el idioma predeterminado, y los idiomas admitidos por la aplicación</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nt">default_locale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">enabled_locales</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'en'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'fr'</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1"># el servicio de TRADUCCIÓN; sus diccionarios están en la carpeta translations/.</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="c1"># Una clave ausente del diccionario francés se busca en el diccionario inglés</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nt">translator</span><span class="p">:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="nt">default_path</span><span class="p">:</span><span class="w"> </span><span class="s">'%kernel.project_dir%/translations'</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="nt">fallbacks</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'en'</span><span class="p p-Indicator">]</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Línea 5: el idioma predeterminado de la aplicación, que se usa para las solicitudes que no especifican un idioma (Ejemplo 09);</li>
+<li>línea 6: los idiomas admitidos por la aplicación. Esta lista la usa <em>[Symfony]</em> (el profiler, la generación de rutas localizadas, etc.); nuestro propio código también tiene su propia lista, en el listener <strong><em>[SetLanguage]</em></strong>;</li>
+<li>líneas 9–11: el servicio de traducción. <strong><em>[fallbacks]</em></strong> especifica el o los idiomas de <strong>respaldo</strong>: si una clave falta en el diccionario del idioma solicitado, se busca en el diccionario en inglés. Una clave que falta en todos los diccionarios se muestra tal cual: de este modo, cualquier omisión es visible de inmediato en la pantalla.</li>
+</ul>
+<h3 id="512-los-diccionarios">5.1.2. <span style="color: #1f4d78">Los diccionarios</span></h3>
+<p>El archivo <strong><em>[translations/messages+intl-icu.fr.yaml]</em></strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># translations/messages+intl-icu.fr.yaml: el diccionario francés.</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># messages: el dominio predeterminado; +intl-icu: los mensajes siguen la sintaxis ICU</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># ({name}: un parámetro; {n, plural, ...}: un mensaje que depende de un número)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nt">MENU</span><span class="p">:</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="nt">HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Accueil</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nt">PRODUCTS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Produits</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nt">HOME</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="nt">TITLE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bienvenue</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="nt">HELLO</span><span class="p">:</span><span class="w"> </span><span class="s">'Bonjour</span><span class="nv"> </span><span class="s">{name}</span><span class="nv"> </span><span class="s">!'</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="nt">DATE</span><span class="p">:</span><span class="w"> </span><span class="s">'Nous</span><span class="nv"> </span><span class="s">sommes</span><span class="nv"> </span><span class="s">le</span><span class="nv"> </span><span class="s">{date}.'</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="nt">PRODUCTS</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nt">TITLE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nos produits</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="nt">NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Produit</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="nt">PRICE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prix</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="nt">COUNT</span><span class="p">:</span><span class="w"> </span><span class="s">'{n,</span><span class="nv"> </span><span class="s">plural,</span><span class="nv"> </span><span class="s">=0</span><span class="nv"> </span><span class="s">{Aucun</span><span class="nv"> </span><span class="s">produit}</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">{#</span><span class="nv"> </span><span class="s">produit}</span><span class="nv"> </span><span class="s">other</span><span class="nv"> </span><span class="s">{#</span><span class="nv"> </span><span class="s">produits}}</span><span class="nv"> </span><span class="s">au</span><span class="nv"> </span><span class="s">catalogue.'</span>
+</code></pre></div></td></tr></table></div>
+<p>El nombre del archivo consta de tres partes: el dominio (<strong><em>[messages]</em></strong>, el dominio predeterminado), el sufijo <strong><em>[+intl-icu]</em></strong>, que indica mensajes en formato ICU, y el idioma (<strong><em>[fr]</em></strong>). Las claves se agrupan por tema mediante la estructura de anidamiento de YAML: el elemento de menú “Accueil” tiene la clave [MENU.HOME], con los niveles separados por un punto. Un texto puede contener <strong>parámetros</strong>, escritos como <strong><em>[{name}]</em></strong>, que se reemplazan durante la traducción.</p>
+<ul>
+<li>Línea 9: los apóstrofos delimitan una cadena YAML; son necesarios cuando el texto contiene caracteres que YAML interpreta (llaves, dos puntos, etc.);</li>
+<li>Línea 15: un mensaje en <strong>plural</strong>. <strong><em>[{n, plural, ...}]</em></strong> selecciona una forma según el valor del parámetro <strong><em>[n]</em></strong>: <strong><em>[=0]</em></strong> para exactamente 0, <strong><em>[one]</em></strong> para el singular, <strong><em>[other]</em></strong> para el plural; <strong><em>[#]</em></strong> se reemplaza por el número. Las reglas del plural dependen del idioma, e ICU las conoce: en francés, 0 y 1 son singular, mientras que en inglés, 0 es plural (“0 products”). Esto mejora el “product(s)” utilizado en las versiones anteriores del caso de estudio.</li>
+</ul>
+<p>El archivo <strong><em>[translations/messages+intl-icu.en.yaml]</em></strong> tiene exactamente las mismas claves:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># translations/messages+intl-icu.en.yaml: el diccionario inglés; mismas claves</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nt">MENU</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="nt">HOME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Home</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="nt">PRODUCTS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Products</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nt">HOME</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="nt">TITLE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Welcome</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="nt">HELLO</span><span class="p">:</span><span class="w"> </span><span class="s">'Hello</span><span class="nv"> </span><span class="s">{name}!'</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="nt">DATE</span><span class="p">:</span><span class="w"> </span><span class="s">'Today</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">{date}.'</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nt">PRODUCTS</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="nt">TITLE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Our products</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="nt">NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Product</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="nt">PRICE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Price</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="nt">COUNT</span><span class="p">:</span><span class="w"> </span><span class="s">'{n,</span><span class="nv"> </span><span class="s">plural,</span><span class="nv"> </span><span class="s">=0</span><span class="nv"> </span><span class="s">{No</span><span class="nv"> </span><span class="s">products}</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">{#</span><span class="nv"> </span><span class="s">product}</span><span class="nv"> </span><span class="s">other</span><span class="nv"> </span><span class="s">{#</span><span class="nv"> </span><span class="s">products}}</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">catalogue.'</span>
+</code></pre></div></td></tr></table></div>
+<p>Sin el sufijo <strong><em>[+intl-icu]</em></strong>, los parámetros se escribirían como <strong><em>[%name%]</em></strong>, y el plural usaría una sintaxis propia de <em>[Symfony]</em> (<strong><em>[{0} Aucun produit|{1} Un produit|]1, Inf[ %n% produits]</em></strong>). El formato ICU es el que recomienda actualmente la documentación de <em>[Symfony]</em>.</p>
+<h3 id="513-el-idioma-de-cada-solicitud-srceventlistenersetlanguagephp">5.1.3. <span style="color: #1f4d78">El idioma de cada solicitud: src/EventListener/SetLanguage.php</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1">// src/EventListener/SetLanguage.php: el idioma de cada solicitud</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">namespace</span> <span class="nx">App\EventListener</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\Attribute\AsEventListener</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\RequestEvent</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\KernelEvents</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1">// prioridad 20: después del enrutamiento, antes de los listeners de Symfony que usan el idioma (véase el ejemplo 16)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">#[</span><span class="nd">AsEventListener</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span> <span class="nx">KernelEvents</span><span class="o">::</span><span class="na">REQUEST</span><span class="p">,</span> <span class="nx">priority</span><span class="o">:</span> <span class="mi">20</span><span class="p">)]</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="k">class</span> <span class="nc">SetLanguage</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="c1">// los idiomas admitidos; el primero es el idioma predeterminado</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="k">public</span> <span class="k">const</span> <span class="no">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'en'</span><span class="p">,</span> <span class="s1">'fr'</span><span class="p">];</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="k">public</span> <span class="k">const</span> <span class="no">COOKIE</span> <span class="o">=</span> <span class="s1">'language'</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>    <span class="c1">// el idioma de la cookie [language] si es admitido, inglés en caso contrario</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__invoke</span><span class="p">(</span><span class="nx">RequestEvent</span> <span class="nv">$event</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>    <span class="p">{</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="nv">$request</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">();</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>        <span class="nv">$language</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">cookies</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="na">COOKIE</span><span class="p">);</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>        <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setLocale</span><span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$language</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="na">LANGUAGES</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$language</span> <span class="o">:</span> <span class="nx">self</span><span class="o">::</span><span class="na">LANGUAGES</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>    <span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Este es el listener <strong><em>[SetLanguage]</em></strong> del Ejemplo 16, que esta vez obtiene el idioma de una cookie:</p>
+<ul>
+<li>línea 11: el listener del evento <strong><em>[kernel.request]</em></strong>, con prioridad 20: después del enrutamiento, pero antes de los listeners de <em>[Symfony]</em> que utilizan el idioma de la solicitud (Ejemplo 16);</li>
+<li>líneas 15–17: los idiomas admitidos y el nombre de la cookie: <strong>constantes de clase</strong> públicas, accesibles desde otras clases (<strong><em>[SetLanguage::LANGUAGES]</em></strong>);</li>
+<li>líneas 22–24: el idioma de la solicitud: el de la <strong><em>cookie [language]</em></strong> si existe y es admitido; de lo contrario, inglés. <strong><em>[$request-&gt;cookies]</em></strong> es el conjunto de cookies enviadas por el navegador (ejemplo 05); <strong><em>[get]</em></strong> devuelve el valor de una cookie o <strong><em>[null]</em></strong>. <strong><em>[in_array]</em></strong>, con <strong><em>[true]</em></strong> como tercer parámetro, compara también los tipos (<strong><em>[===]</em></strong>). <strong><em>[setLocale]</em></strong> establece el idioma de la solicitud: es el idioma que utilizan el traductor, nuestros filtros de formato y el filtro <strong><em>[format_currency]</em></strong> de <em>[Twig]</em>.</li>
+</ul>
+<p>A diferencia de <em>[Laravel]</em>, <em>[Symfony]</em> no cifra las cookies: la cookie <strong><em>[language]</em></strong> se transmite en texto plano. Esto no es un problema: no contiene información confidencial y el servidor solo acepta los idiomas admitidos. El siguiente ejemplo vuelve sobre la cuestión de cuánta confianza puede depositarse en una cookie.</p>
+<h3 id="514-seleccion-del-idioma-srccontrollerlanguagecontrollerphp">5.1.4. <span style="color: #1f4d78">Selección del idioma: src/Controller/LanguageController.php</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span>
+<span class="normal"><a href="#__codelineno-5-32">32</a></span>
+<span class="normal"><a href="#__codelineno-5-33">33</a></span>
+<span class="normal"><a href="#__codelineno-5-34">34</a></span>
+<span class="normal"><a href="#__codelineno-5-35">35</a></span>
+<span class="normal"><a href="#__codelineno-5-36">36</a></span>
+<span class="normal"><a href="#__codelineno-5-37">37</a></span>
+<span class="normal"><a href="#__codelineno-5-38">38</a></span>
+<span class="normal"><a href="#__codelineno-5-39">39</a></span>
+<span class="normal"><a href="#__codelineno-5-40">40</a></span>
+<span class="normal"><a href="#__codelineno-5-41">41</a></span>
+<span class="normal"><a href="#__codelineno-5-42">42</a></span>
+<span class="normal"><a href="#__codelineno-5-43">43</a></span>
+<span class="normal"><a href="#__codelineno-5-44">44</a></span>
+<span class="normal"><a href="#__codelineno-5-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">// src/Controller/LanguageController.php: la elección del idioma</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">use</span> <span class="nx">App\EventListener\SetLanguage</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Cookie</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RedirectResponse</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Request</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Attribute\Route</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="k">class</span> <span class="nc">LanguageController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="c1">// GET /language/fr: guarda la elección en una cookie y luego regresa a la página anterior.</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="c1">// requirements: un idioma distinto de en o fr no coincide con la ruta (404)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">'/language/{code}'</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'language'</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">'code'</span> <span class="o">=&gt;</span> <span class="s1">'en|fr'</span><span class="p">],</span> <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">'GET'</span><span class="p">])]</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">change</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">)</span><span class="o">:</span> <span class="nd">RedirectResponse</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    <span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="na">originPage</span><span class="p">(</span><span class="nv">$request</span><span class="p">));</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>        <span class="c1">// la cookie: un año de vida, ilegible para el JavaScript de la página (httpOnly),</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a>        <span class="c1">// nunca enviada con una solicitud POST proveniente de otro sitio (sameSite lax)</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>        <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">setCookie</span><span class="p">(</span><span class="nx">Cookie</span><span class="o">::</span><span class="na">create</span><span class="p">(</span><span class="nx">SetLanguage</span><span class="o">::</span><span class="na">COOKIE</span><span class="p">,</span> <span class="nv">$code</span><span class="p">)</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>            <span class="o">-&gt;</span><span class="na">withExpires</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTimeImmutable</span><span class="p">(</span><span class="s1">'+1 year'</span><span class="p">))</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>            <span class="o">-&gt;</span><span class="na">withHttpOnly</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a>            <span class="o">-&gt;</span><span class="na">withSameSite</span><span class="p">(</span><span class="nx">Cookie</span><span class="o">::</span><span class="na">SAMESITE_LAX</span><span class="p">));</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>        <span class="nd">return</span> <span class="nv">$response</span><span class="p">;</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>    <span class="p">}</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>    <span class="c1">// la página de la que venimos (encabezado Referer), de la cual conservamos solo la ruta:</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>    <span class="c1">// redirigir a una dirección completa proveniente de la solicitud permitiría</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32"></a>    <span class="c1">// enviar al usuario a otro sitio (vulnerabilidad de "open redirect")</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33"></a>    <span class="nd">private</span> <span class="nd">static</span> <span class="nd">function</span> <span class="nd">originPage</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span><span class="o">:</span> <span class="nd">string</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34"></a>    <span class="p">{</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35"></a>        <span class="c1">// parse_url divide una URL en sus componentes (ruta, parámetros...)</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36"></a>        <span class="nv">$url</span> <span class="o">=</span> <span class="nd">parse_url</span><span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">headers</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'Referer'</span><span class="p">,</span> <span class="s1">''</span><span class="p">));</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37"></a>        <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$url</span><span class="p">[</span><span class="s1">'path'</span><span class="p">]</span> <span class="o">??</span> <span class="s1">''</span><span class="p">;</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38"></a>        <span class="c1">// "//site.com/..." sería entendida por el navegador como una dirección</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39"></a>        <span class="c1">// en OTRO sitio: también se rechaza</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40"></a>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">str_starts_with</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">)</span> <span class="o">||</span> <span class="nb">str_starts_with</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">'//'</span><span class="p">))</span> <span class="p">{</span>
+<a id="__codelineno-5-41" name="__codelineno-5-41"></a>            <span class="k">return</span> <span class="s1">'/'</span><span class="p">;</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42"></a>        <span class="p">}</span>
+<a id="__codelineno-5-43" name="__codelineno-5-43"></a>        <span class="k">return</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$url</span><span class="p">[</span><span class="s1">'query'</span><span class="p">])</span> <span class="o">?</span> <span class="s2">"</span><span class="si">$path</span><span class="s2">?</span><span class="si">{</span><span class="nv">$url</span><span class="p">[</span><span class="s1">'query'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="o">:</span> <span class="nv">$path</span><span class="p">;</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44"></a>    <span class="p">}</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>línea 17: la ruta <strong><em>[/language/{code}]</em></strong>. La opción <strong><em>[requirements]</em></strong> (ejemplo 02) limita el parámetro a los dos idiomas admitidos: <strong><em>[/language/de]</em></strong> no corresponde a ninguna ruta y devuelve un error 404;</li>
+<li>línea 20: la acción responde con una redirección a la página de la que provino el usuario: el usuario regresa a su página en el nuevo idioma;</li>
+<li>Líneas 23–26: la respuesta contiene una <strong>cookie</strong>, que el navegador reenviará con cada solicitud. La clase <strong><em>[Cookie]</em></strong> de <em>[Symfony]</em> la describe: <strong><em>[Cookie::create(name, value)]</em></strong> la crea, y cada método <strong><em>de [with...]</em></strong> devuelve una copia modificada (un objeto inmutable; véase el Ejemplo 03): <strong><em>[withExpires]</em></strong>, la fecha de expiración (en un año); <strong><em>[withHttpOnly(true)]</em></strong> la hace invisible para el <em>[JavaScript] de la</em> página; <strong><em>[withSameSite(Cookie::SAMESITE_LAX)]</em></strong> impide que el navegador la envíe con una solicitud POST proveniente de otro sitio. (<strong><em>[httpOnly]</em></strong> y <strong><em>[lax]</em></strong> son, dicho sea de paso, los valores predeterminados de <strong><em>[Cookie::create]</em></strong>.) <strong><em>[$response-&gt;headers-&gt;setCookie]</em></strong> la agrega a la respuesta como un encabezado <strong><em>[Set-Cookie]</em></strong>;</li>
+<li>líneas 33–44: la página de origen se especifica mediante el encabezado <strong><em>[Referer]</em></strong> de la solicitud (la versión con error ortográfico, con una sola <strong><em>[r]</em></strong>, es la que se usa en el estándar HTTP), que el navegador completa con la URL de la página que contenía el enlace. Pero este encabezado proviene del cliente, que puede poner en él lo que quiera. Redirigir a ciegas a esta dirección convertiría nuestra aplicación en una <strong>redirección</strong> <em>abierta</em>: un enlace malicioso con el nombre de nuestro dominio podría enviar al usuario a un sitio malicioso. Por lo tanto, conservamos solo la ruta y los parámetros de la URL (la función <strong><em>[parse_url]</em></strong> de <em>[PHP]</em> la descompone en sus componentes en un arreglo asociativo) y rechazamos cualquier ruta que comience con <strong><em>[//]</em></strong>, que el navegador interpretaría como la dirección de otro sitio.</li>
+</ul>
+<h3 id="515-acciones-srccontrollerpagescontrollerphp">5.1.5. <span style="color: #1f4d78">Acciones: src/Controller/PagesController.php</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span>
+<span class="normal"><a href="#__codelineno-6-31">31</a></span>
+<span class="normal"><a href="#__codelineno-6-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">// src/Controller/PagesController.php: las acciones no saben nada del idioma:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1">// proporcionan datos, las vistas los traducen y los formatean</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">use</span> <span class="nx">App\Model\Product</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="k">use</span> <span class="nx">DateTimeImmutable</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Attribute\Route</span><span class="p">;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">'GET'</span><span class="p">])]</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="k">class</span> <span class="nc">PagesController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="p">{</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'home'</span><span class="p">)]</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">home</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>    <span class="p">{</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'pages/home.html.twig'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Marie'</span><span class="p">,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>            <span class="s1">'today'</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">DateTimeImmutable</span><span class="p">(</span><span class="s1">'2026-09-23'</span><span class="p">)]);</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>    <span class="p">}</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">'/products'</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">'products'</span><span class="p">)]</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">products</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>    <span class="p">{</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'pages/products.html.twig'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'products'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>            <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'Keyboard'</span><span class="p">,</span> <span class="mi">2500</span><span class="p">),</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>            <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'Mouse'</span><span class="p">,</span> <span class="mi">1250</span><span class="p">),</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>            <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'Screen'</span><span class="p">,</span> <span class="mi">114900</span><span class="p">),</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>        <span class="p">]]);</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31"></a>    <span class="p">}</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Las acciones son independientes del idioma: proporcionan datos sin procesar (un nombre, una fecha, montos en centavos). La traducción y el formato corren por cuenta de las vistas. La clase <strong><em>[Product]</em></strong> tiene un nombre y un precio en centavos; la extensión <strong><em>[FormatsExtension]</em></strong> es la del Ejemplo 16: su filtro <strong><em>[long_date]</em></strong> escribe una fecha en el formato “completo” del idioma de la solicitud (“Wednesday, September 23, 2026”, “mercredi 23 septembre 2026”), y su filtro <strong><em>[money] escribe</em></strong> un monto.</p>
+<h3 id="516-traducir-en-las-vistas">5.1.6. <span style="color: #1f4d78">Traducir en las vistas</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>{# app.request.locale: el idioma de la solicitud, "en" o "fr" #}
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"{{ app.request.locale }}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  {# el título: el bloque [title] de la página, ya traducido #}
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ path('bootstrap', {file: 'css/bootstrap.min.css'}) }}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ asset('css/styles.css') }}"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"container py-3"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    {% include 'fragments/navbar.html.twig' %}
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>      {% block content %}{% endblock %}
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>línea 3: el atributo <strong><em>[lang]</em></strong> de la página indica su idioma a los navegadores, los motores de búsqueda y los lectores de pantalla; <strong><em>[app.request.locale]</em></strong> es el idioma de la solicitud;</li>
+<li>línea 8: el título de la página lo proporciona la propia página, ya traducido (bloque <strong><em>[title]</em></strong>).</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">"navbar navbar-expand bg-light rounded mb-3 px-3"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"navbar-nav me-auto"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    {# 'KEY'|trans: la traducción de una clave, en el idioma de la solicitud #}
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ path('home') }}"</span><span class="p">&gt;</span>{{ 'MENU.HOME'|trans }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"{{ path('products') }}"</span><span class="p">&gt;</span>{{ 'MENU.PRODUCTS'|trans }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>  {# el idioma actual aparece resaltado #}
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn-group btn-group-sm"</span><span class="p">&gt;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    {% for code in ['fr', 'en'] %}
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn {{ app.request.locale == code ? 'btn-primary' : 'btn-outline-primary' }}"</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>         <span class="na">href</span><span class="o">=</span><span class="s">"{{ path('language', {code: code}) }}"</span><span class="p">&gt;</span>{{ code|upper }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>    {% endfor %}
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>líneas 4–5: el filtro <strong><em>[trans]</em></strong> traduce una clave al idioma de la solicitud;</li>
+<li>líneas 9–12: un botón por idioma, que desencadena la acción <strong><em>[/language/{code}]</em></strong>. El idioma actual aparece resaltado (<strong><em>[btn-primary]</em></strong>, botón sólido).</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>{% extends 'layout.html.twig' %}
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>{% block title %}{{ 'HOME.TITLE'|trans }}{% endblock %}
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>{% block content %}
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ 'HOME.TITLE'|trans }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  {# un parámetro: el parámetro del filtro trans, un arreglo asociativo #}
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ 'HOME.HELLO'|trans({name: name}) }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>  {# la fecha, formateada primero (filtro long_date, ver el ejemplo 16), luego pasada como parámetro [date] #}
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ 'HOME.DATE'|trans({date: today|long_date}) }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>{% endblock %}
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>línea 2: el bloque <strong><em>[title]</em></strong> traducido para la plantilla;</li>
+<li>línea 7: los parámetros de un texto se proporcionan en un arreglo asociativo, un parámetro del filtro <strong><em>[trans]</em></strong>; <strong><em>[{name}] se reemplaza por el valor de la clave [name]</em></strong>;</li>
+<li>línea 9: la fecha, formateada en el idioma de la solicitud por el filtro <strong><em>[long_date]</em></strong> y luego pasada como parámetro.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>{% extends 'layout.html.twig' %}
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>{% block title %}{{ 'PRODUCTS.TITLE'|trans }}{% endblock %}
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>{% block content %}
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ 'PRODUCTS.TITLE'|trans }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>  <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">"table table-sm w-auto"</span><span class="p">&gt;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">th</span><span class="p">&gt;</span>{{ 'PRODUCTS.NAME'|trans }}<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;</span><span class="nt">th</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-end"</span><span class="p">&gt;</span>{{ 'PRODUCTS.PRICE'|trans }}<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>      {% for product in products %}
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>          <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{{ product.name }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>          {# el filtro money del ejemplo 16: el formato depende del idioma #}
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>          <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">"text-end"</span><span class="p">&gt;</span>{{ product.priceCents|money }}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>      {% endfor %}
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>    <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>  <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>  {# el mensaje en plural: ICU elige la forma según el parámetro n #}
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ 'PRODUCTS.COUNT'|trans({n: products|length}) }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>{% endblock %}
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>línea 13: el filtro <strong><em>[money]</em></strong>, cuyo resultado depende del idioma;</li>
+<li>línea 19: el parámetro <strong><em>[n]</em></strong> para la forma plural del mensaje: el número de productos (<strong><em>[length]</em></strong>, ejemplo 14). Los nombres de los productos no se traducen: son <strong>datos</strong> que, en una aplicación real, provendrían de una base de datos.</li>
+</ul>
+<p>Fuera de las vistas, el traductor es un servicio de tipo <strong><em>[TranslatorInterface]</em></strong>, que una acción o un servicio puede recibir por inyección: <strong><em>[$translator-&gt;trans(&#x27;HOME.HELLO&#x27;, [&#x27;name&#x27; =&gt; &#x27;Marie&#x27;])]</em></strong>.</p>
+<h3 id="517-ejecucion">5.1.7. <span style="color: #1f4d78">Ejecución</span></h3>
+<p>La página de inicio, en inglés (el idioma predeterminado) y luego en francés tras hacer clic en el botón &quot;FR&quot;:</p>
+<p><img src="images/10000000000002BE000001101E318119.png" width="428" height="166" style="width:11.322cm;height:4.387cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE000001101E318119.png" /></p>
+<p><img src="images/10000000000002BE00000110978B9793.png" width="428" height="166" style="width:11.322cm;height:4.387cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE00000110978B9793.png" /></p>
+<p>La página de productos, en ambos idiomas. Los montos siguen las convenciones de cada idioma:</p>
+<p><img src="images/10000000000002BE0000017C1E47F355.png" width="428" height="232" style="width:11.322cm;height:6.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000017C1E47F355.png" /></p>
+<p><img src="images/10000000000002BE0000017CF8158390.png" width="428" height="232" style="width:11.322cm;height:6.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE0000017CF8158390.png" /></p>
+<p>El cambio de idioma, visto con <em>[curl]</em>. La opción <strong><em>[-H]</em></strong> proporciona el encabezado <strong><em>[Referer]</em></strong> que enviaría el navegador:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>curl -i -H "Referer: http://localhost:8000/products" http://localhost:8000/language/en
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>...
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>Location: /products
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>...
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>Set-Cookie: language=en; expires=Mon, 27 Sep 2027 09:47:37 GMT; Max-Age=31536000; path=/; httponly; samesite=lax
+</code></pre></div></td></tr></table></div>
+<p>La redirección lo lleva de vuelta a la página de origen (<em>[Symfony]</em> escribe una URL relativa, que el navegador completa) y la cookie se establece por un año. Un <strong><em>[Referer]</em></strong> que apunta a otro sitio no lo redirige allí: solo se conserva su ruta.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>curl -i -H "Referer: https://pirate.example/trap" http://localhost:8000/language/en
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>curl -i -H "Referer: http://localhost:8000//pirate.example/x" http://localhost:8000/language/fr
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>HTTP/1.1 302 Found
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>Location: /trap
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>...
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>HTTP/1.1 302 Found
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>Location: /
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>...
+</code></pre></div></td></tr></table></div>
+<p>La página <strong><em>[/trap]</em></strong> no existe en nuestro sitio: el usuario recibirá un error 404, pero permanecerá en nuestro sitio. Por último, la página de inicio, solicitada con la cookie <strong><em>[language=en]</em></strong> (opción <strong><em>[-b]</em></strong> de <em>[curl]</em>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>curl -b "language=en" http://localhost:8000/
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">&lt;!doctype html&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>...
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/"</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"nav-link"</span> <span class="na">href</span><span class="o">=</span><span class="s">"/products"</span><span class="p">&gt;</span>Products<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>...
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello Marie!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Today is Wednesday, September 23, 2026.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>...
+</code></pre></div></td></tr></table></div>
+<p>Otra forma de elegir el idioma habría sido leer el encabezado <strong><em>[Accept-Language]</em></strong> del navegador (ejemplo 12; <strong><em>[$request-&gt;getPreferredLanguage([&#x27;fr&#x27;, &#x27;en&#x27;])]</em></strong> selecciona el mejor idioma entre los admitidos). Con frecuencia se combinan ambas: el idioma del navegador en la primera visita, seguido del idioma que el usuario haya seleccionado. Un tercer método, de uso común con <em>[Symfony]</em>, coloca el idioma en la URL (<strong><em>[/en/products]</em></strong>): un parámetro de ruta especial, <strong><em>[{_locale}]</em></strong>, establece entonces por sí mismo el idioma de la solicitud. Este caso de estudio se centra en la cookie, con el inglés como idioma predeterminado.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por la IA <strong>Claude</strong> de Anthropic a petición de <strong>Serge Tahé</strong>, se pone a disposición del público bajo los términos de la
+        <em>licencia Creative Commons Atribución – No Comercial –
+        Compartir Igual 3.0 No adaptada</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

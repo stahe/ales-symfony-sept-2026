@@ -1,0 +1,765 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introducción paso a paso al framework web [Symfony]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/ales-symfony-sept-2026/conclusion.html">
+      
+      
+        <link rel="prev" href="caso-de-estudio-la-aplicacion-rdvmedecins.html">
+      
+      
+        <link rel="next" href="apendices.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>12. Conclusión - Introducción paso a paso al framework web [Symfony]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introducción paso a paso al framework web [Symfony]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-conclusion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introducción paso a paso al framework web [Symfony]" class="md-header__button md-logo" aria-label="Introducción paso a paso al framework web [Symfony]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción paso a paso al framework web [Symfony]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12. Conclusión
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/ales-symfony-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introducción paso a paso al framework web [Symfony]" class="md-nav__button md-logo" aria-label="Introducción paso a paso al framework web [Symfony]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción paso a paso al framework web [Symfony]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/ales-symfony-sept-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acciones-enrutamiento-respuestas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Acciones, enrutamiento, respuestas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="el-modelo-de-la-accion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. El modelo de la acción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="la-vista-y-su-modelo.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. La vista y su modelo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="internacionalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Internacionalización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ambitos-de-los-datos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Ámbitos de los datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="el-ciclo-de-vida-de-una-solicitud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. El ciclo de vida de una solicitud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="autenticacion-y-autorizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Autenticación y autorización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitectura-en-capas-y-acceso-a-datos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Arquitectura en capas y acceso a datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion-provisional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Conclusión provisional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="caso-de-estudio-la-aplicacion-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Caso de estudio: la aplicación RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="conclusion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Conclusión
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apendices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Apéndices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="12-conclusion">12. <span style="color: #2e74b5">Conclusión</span></h1>
+<p>Este documento describió el desarrollo de una aplicación web MVC con el framework <em>[Symfony]</em>: una aplicación cuyas páginas HTML las genera el servidor, mediante vistas <em>[Twig]</em>, sin un framework <em>[JavaScript]</em> del lado del navegador. Siguió paso a paso el curso de <em>[Laravel]</em>, que a su vez se apoya en los cursos <em>[Flask]</em>, <em>[Spring MVC]</em>, <em>[ASP.NET Core MVC]</em> y <em>[NestJS]</em>: acciones y enrutamiento hacia las vistas, formularios, internacionalización, seguridad y acceso a datos, seguidos de un caso de estudio completo.</p>
+<p>Los mismos 28 ejemplos y la misma aplicación se escribieron así con seis frameworks: en <em>[TypeScript]</em>, en <em>[C#]</em>, en <em>[Java]</em>, en <em>[Python]</em> y dos veces en <em>[PHP]</em>. Los conceptos son los mismos; solo cambian los nombres y los mecanismos. Las correspondencias entre <em>[Laravel]</em> y <em>[Symfony]</em>, los dos grandes frameworks del mundo <em>[PHP]</em>:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>[Laravel]</i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>[Symfony]</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[bootstrap/app.php]</b></i>, proveedores de servicios,</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">(<i><b>[src/Kernel.php]</b></i>), bundles, contenedor <b>compilado</b> (<i><b>[config/services.yaml]</b></i>, <i><b>[#[Autowire]]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[composer.json]</b></i>, carpeta <i><b>[vendor]</b></i>, <i><b>[php artisan]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[composer.json]</b></i>, carpeta <i><b>[vendor]</b></i>, <i><b>[php bin/console]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">archivo <i><b>[.env]</b></i>, carpeta <i><b>[config] </b></i>(archivos <i>[PHP]</i>), funciones <i><b>[env] </b></i>y <i><b>[config]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">archivo <i><b>[.env]</b></i>, carpeta <i><b>[config/packages] </b></i>(archivos YAML), <i><b>[%env(...)%]</b></i>, parámetros del contenedor</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[routes/web.php]</b></i>, rutas con nombre, grupos de rutas</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">atributos de controlador <i><b>[#[Route]]</b></i>, en la acción y en la clase</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[view]</b></i>, <i><b>[redirect]</b></i>, <i><b>[route]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[render]</b></i>, <i><b>[redirectToRoute]</b></i>, <i><b>[generateUrl] </b></i>(<i><b>[AbstractController]</b></i>); <i><b>[path] </b></i>en las vistas</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">objeto <i><b>[Request]</b></i>, restricciones (<i><b>[whereNumber]</b></i>), enlace de modelo</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">objeto <i><b>[Request]</b></i>, <i><b>[requirements] </b></i>(<i><b>[{id&lt;\d+&gt;}]</b></i>), resolvedores de argumentos, <i><b>[#[MapQueryString]]</b></i>, <i><b>[#[MapRequestPayload]]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[Validator]</b></i>, solicitudes de formulario (<i><b>[FormRequest]</b></i>), reglas, <i><b>[$errors]</b></i>, <i><b>[old()]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">componente Validator (restricciones mediante atributos), componente Form (tipos, <i><b>[handleRequest]</b></i>, <i><b>[isValid]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">vistas <i>[Blade]</i>, <i><b>[{{ }}]</b></i>, <i><b>[@foreach]</b></i>, <i><b>[@if]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">vistas <i>[Twig]</i>, <i><b>[{{ }}]</b></i>, <i><b>[{% for %}]</b></i>, <i><b>[{% if %}]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[@extends] </b></i>y secciones, <i><b>[@include]</b></i>, componentes (<i><b>[&lt;x-...&gt;]</b></i>)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[{% extends %}] </b></i>y bloques, <i><b>[{% include %}]</b></i>, macros</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">view composer (<i><b>[View::composer]</b></i>)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">variables globales de <i>[Twig]</i>, extensiones <i>[Twig] </i>(funciones, filtros)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">datos flash de sesión (<i><b>[session()-&gt;flash]</b></i>, <i><b>[with]</b></i>)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">mensajes flash (<i><b>[addFlash]</b></i>, <i><b>[app.flashes]</b></i>), sesión en archivos</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">(global, de grupo, de ruta), <i><b>[terminate]</b></i> (método)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">listeners de eventos del kernel (<i><b>[kernel.request]</b></i>, <i><b>[kernel.controller]</b></i>, <i><b>[kernel.response]</b></i>, <i><b>[kernel.terminate]</b></i>...)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[withExceptions]</b></i>, <i><b>[render]</b></i>, <i><b>[abort]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Listeners: <i><b>[kernel.exception]</b></i>, <i><b>[HttpException]</b></i>, <i><b>[createNotFoundException]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">guardias (<i><b>[Auth::viaRequest]</b></i>), middleware <i><b>[auth]</b></i>, <i><b>[Gate]</b></i>, fachada <i><b>[Hash]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">firewall, autenticadores, <i><b>[access_control]</b></i>, <i><b>[#[IsGranted]]</b></i>, voters, hash de contraseñas (<i><b>[security.yaml]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[PreventRequestForgery]</b></i> middleware, <i><b>[@csrf]</b></i> directiva (respuesta 419)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Token del componente Form, <i><b>[csrf_token()] </b></i>y <i><b>[isCsrfTokenValid] </b></i>(respuesta 403, o 419 en nuestra aplicación)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[RateLimiter] </b></i>(fachada)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Componente <i>[RateLimiter] </i>(limitadores declarados en <i><b>[framework.yaml]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">carpeta <i><b>[lang]</b></i>, función <i><b>[__()]</b></i>, <i><b>[App::setLocale]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">carpeta <i><b>[translations] </b></i>(YAML, ICU), filtro <i><b>[trans]</b></i>, <i><b>[TranslatorInterface]</b></i>, idioma de la solicitud</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>[Carbon] </i>(<i><b>[isoFormat]</b></i>), <i><b>[Number]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Extensión <i>[intl]</i>: <i><b>[IntlDateFormatter]</b></i>, <i><b>[NumberFormatter]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Caché (<i><b>[Cache]</b></i>, <i><b>[Cache::lock]</b></i>)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Componente Cache (PSR-6 y contracts), componente Lock</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>[Eloquent]</i>: modelos <b>Active Record, </b>relaciones (<i><b>[belongsTo]</b></i>, <i><b>[with]</b></i>)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i>[Doctrine]</i>: entidades <b>Data Mapper, </b>administrador de entidades, DQL y QueryBuilder, relaciones (<i><b>[ManyToOne]</b></i>, <i><b>[OneToOne]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[DB::transaction(...)]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[wrapInTransaction(...)]</b></i>, <i><b>[flush]</b></i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[WHERE version = ?] </b></i>y <i><b>[version + 1]</b></i>, escritos en la capa DAO</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[#[ORM\Version]]</b></i>, gestionado por <i>[Doctrine] </i>(<i><b>[OptimisticLockException]</b></i>)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[php artisan serve]</b></i></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><i><b>[php -S localhost:8000 -t public]</b></i>, o <i><b>[symfony server:start]</b></i></div></td></tr></table>
+
+<p>Respecto de <em>[Laravel]</em>, los puntos clave que conviene notar son:</p>
+<ul>
+<li><em>[Symfony]</em> es un conjunto de <strong>componentes</strong> independientes, ensamblados en <strong>bundles</strong>. Cada componente es autónomo, y <em>[Laravel]</em> utiliza varios de ellos (<strong><em>[HttpFoundation]</em></strong>, <strong><em>[HttpKernel]</em></strong>, <strong><em>[Routing]</em></strong>, <strong><em>[Console]</em></strong>...): los lectores de la lección anterior reconocerán aquí los mismos objetos: <strong><em>[Request]</em></strong> y <strong><em>[Response]</em></strong>. Una aplicación llamada <em>[Symfony]</em> instala solo los componentes que necesita: los ejemplos comenzaron únicamente con <strong><em>[framework-bundle]</em></strong> y luego agregaron, uno a uno, <em>[Twig]</em>, la validación, los formularios, la seguridad y <em>[Doctrine]</em>;</li>
+<li>Todo pasa por el <strong>contenedor de servicios</strong> y la <strong>inyección de dependencias</strong>: sin fachadas ni funciones globales, sino servicios pasados al constructor y declarados por tipo (<em>autowiring</em>). Las dependencias de una clase siempre son visibles en su constructor. El contenedor se <strong>compila</strong> en código <em>[PHP]</em> y se almacena en caché: esto compensa el costo de reconstruir la aplicación en cada solicitud (ejemplo 01);</li>
+<li>El procesamiento de una solicitud consiste en una secuencia de <strong>eventos</strong> del kernel a los que responden <strong>listeners</strong>: aquí se manejan el idioma, la seguridad, los controles de la aplicación (el pase) y las páginas de error. El mecanismo es más explícito que el middleware de <em>[Laravel]</em>: cada listener elige su evento y su prioridad, y el comando <strong><em>[debug:event-dispatcher]</em></strong> muestra el orden de todos los listeners;</li>
+<li>la <strong>configuración es explícita</strong>, en archivos YAML (o <em>[PHP]</em>) que describen cada bundle: el firewall, las reglas de acceso, los limitadores, la sesión y <em>[Doctrine]</em>. Los comandos <strong><em>[debug:router]</em></strong>, <strong><em>[debug:container]</em></strong> y <strong><em>[debug:config]</em></strong> muestran lo que <em>[Symfony]</em> ha interpretado;</li>
+<li>Los atributos <em>[PHP]</em> <strong>de</strong> describen el código: rutas ([#[Route]]), restricciones (<strong><em>[#[Assert\NotBlank]]</em></strong>), entidades (<strong><em>[#[ORM\Column]]</em></strong>), listeners (<strong><em>[#[AsEventListener]]</em></strong>), permisos (<strong><em>[#[IsGranted]]</em></strong>) e inyección (<strong><em>[#[Autowire]]</em></strong>). Incluso escribimos algunos propios (<strong><em>[#[Timed]], [#[RegistrationPassRequired]]</em></strong>);</li>
+<li><strong>los formularios</strong> son objetos, descritos por clases con: campos, restricciones, conversión de valores, reenvío de la entrada, mensajes de error y tokens anti-CSRF. Esto es más código que las solicitudes de formulario de <em>[Laravel]</em> para un formulario pequeño, y mucho menos para uno grande: un tema (<em>[Bootstrap]</em> 5) da estilo a todos los campos de la misma manera;</li>
+<li><strong>security</strong> es un componente completo: un firewall, autenticadores que verifican al usuario, reglas de acceso, una jerarquía de roles y votantes. Lo adaptamos a nuestras necesidades (un token JWT en una cookie) mediante un autenticador de unas pocas decenas de líneas, sin perder ninguna de las demás funcionalidades: <strong><em>[access_control]</em></strong>, <strong><em>[#[IsGranted]]</em></strong>, <strong><em>[is_granted]</em></strong> en las vistas;</li>
+<li><em>[Doctrine]</em> sigue el patrón <strong>Data Mapper</strong>: las entidades son objetos <em>[PHP]</em> comunes que desconocen la base de datos; es el <strong>administrador de entidades</strong> quien las lee, rastrea sus cambios y los escribe todos juntos, en una sola transacción, en el momento del <strong><em>[flush]</em></strong>. Más abstracto que el Active Record de <em>[Eloquent]</em>, separa claramente los objetos de sus registros y admite mecanismos como el bloqueo optimista. El registro de las órdenes SQL permite, como con <em>[Eloquent]</em>, verificar lo que se envía a la base de datos;</li>
+<li>las vistas <em>[Twig]</em> tienen su propio lenguaje, más limitado que el <em>[PHP]</em> utilizado en las vistas <em>[Blade]</em>: una vista solo puede mostrar los datos que se le proporcionan. Esto es a la vez una restricción y una garantía: la lógica permanece en las clases. Se compilan a <em>[PHP]</em>, se almacenan en caché y escapan automáticamente el contenido que muestran.</li>
+</ul>
+<p>El caso de estudio muestra que una aplicación HTML clásica, sin el <em>[JavaScript]</em> indispensable, sigue siendo una solución simple y robusta: cada página es una URL, el botón «Atrás» del navegador funciona y el servidor controla todo. El uso limitado de <em>[JavaScript]</em> (ventanas de confirmación) mejora la experiencia del usuario sin ser necesario para el funcionamiento. <em>[Symfony]</em> también puede dar soporte a aplicaciones más interactivas sin salir de <em>[Twig]</em> (<em>[Symfony UX]</em>: <em>[Turbo]</em>, <em>[Stimulus]</em>, <em>Live Components</em>) o con un framework <em>[JavaScript]</em> del lado del navegador, al que ofrece una API JSON (<em>[API Platform]</em>): esto se tratará en otros documentos.</p>
+<p>Para más información, consulte la documentación de <em>[Symfony]</em> (<a href="https://symfony.com/doc/current/index.html"><u><span style="color: #0563c1">symfony.com/doc</span></u></a>), en particular las páginas dedicadas al contenedor de servicios, los eventos del kernel, los formularios, la seguridad y <em>[Doctrine]</em>, así como la documentación de <em>[Twig]</em> (<a href="https://twig.symfony.com/doc/3.x/"><u><span style="color: #0563c1">twig.symfony.com</span></u></a>), la documentación de <em>[Doctrine]</em> (<a href="https://www.doctrine-project.org/projects/doctrine-orm/en/current/index.html"><u><span style="color: #0563c1">doctrine-project.org</span></u></a>), la documentación de <em>[PHP]</em> (<a href="https://www.php.net/manual/fr/"><u><span style="color: #0563c1">php.net/manual/en</span></u></a>), y compare esta aplicación con sus equivalentes <em>[Laravel]</em>, <em>[Flask]</em>, <em>[Spring MVC]</em>, <em>[ASP.NET Core MVC],</em> y <em>[NestJS]</em>.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este tutorial, escrito por la IA <strong>Claude</strong> de Anthropic a petición de <strong>Serge Tahé</strong>, se pone a disposición del público bajo los términos de la
+        <em>licencia Creative Commons Atribución – No Comercial –
+        Compartir Igual 3.0 No adaptada</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
